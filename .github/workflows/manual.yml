@@ -1,0 +1,27 @@
+name: Enviar transacciones a Kafka
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '0 0 * * *'  # Ejecutar el script todos los días a la medianoche UTC
+
+jobs:
+  send_transactions:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout del código
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+          python-version: '3.11'
+          cache: 'pip'   
+          
+    - name: Instalar dependencias
+      run: pip install -r requirements.txt
+
+    - name: Ejecutar el script de Python
+      run: python ./main.py
+
