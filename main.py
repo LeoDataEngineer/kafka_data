@@ -17,11 +17,8 @@ kafka_config = {
     'sasl.username': 'ZGFzaGluZy1pYmV4LTY4MDYkFoaV9RQtF1nv3j4u15zZ7mY9RJStxIlXkKOyIyE',
     'sasl.password': 'MjM4YjZhYTktMzc1MC00MzJhLWEyNTAtMjVhOWUwMzM5OGY2'
 }
-# topic= 'transaccion_tc'
-# bootstrap_servers='dashing-ibex-6806-us1-kafka.upstash.io:9092'
-producer = Producer(kafka_config)
-# producer = KafkaProducer(bootstrap_servers=bootstrap_servers)
 
+producer = Producer(kafka_config)
 
 def generate_fake_transaction(fake):
     """
@@ -73,4 +70,4 @@ for i in range(randint(1, 5)):
         transaction_record.encode('utf-8'),
         callback=delivery_callback
     )
-    
+    producer.poll(0)
