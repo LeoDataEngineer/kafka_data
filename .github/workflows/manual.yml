@@ -8,6 +8,9 @@ on:
 jobs:
   send_transactions:
     runs-on: ubuntu-latest
+    env:
+      KAFKA_USERNAME: ${{ secrets.KAFKA_USERNAME }}
+      KAFKA_PASSWORD: ${{ secrets.KAFKA_PASSWORD }}
     
     steps:
     - name: Checkout del código
