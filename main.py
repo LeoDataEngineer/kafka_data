@@ -8,14 +8,18 @@ import socket
 # instanciar un objeto Faker para generar datos ficticios
 fake = Faker()
 
+
+KAFKA_USERNAME = os.environ['KAFKA_USERNAME']
+KAFKA_PASSWORD = os.environ['KAFKA_PASSWORD']
+
 # Instanciar un objeto Producer a partir de un diccionario de configuracion
 # con los datos necesarios para conectarse
 kafka_config = {
     'bootstrap.servers': 'dashing-ibex-6806-us1-kafka.upstash.io:9092',
     'sasl.mechanism': 'SCRAM-SHA-256',
     'security.protocol': 'SASL_SSL',
-    'sasl.username': 'ZGFzaGluZy1pYmV4LTY4MDYkFoaV9RQtF1nv3j4u15zZ7mY9RJStxIlXkKOyIyE',
-    'sasl.password': 'MjM4YjZhYTktMzc1MC00MzJhLWEyNTAtMjVhOWUwMzM5OGY2',
+    'sasl.username': KAFKA_USERNAME,
+    'sasl.password': KAFKA_PASSWORD,
     'client.id': socket.gethostname()
 }
 
