@@ -4,6 +4,7 @@ from confluent_kafka import Producer
 from faker import Faker
 import pandas as pd
 import socket
+import os
 
 # instanciar un objeto Faker para generar datos ficticios
 fake = Faker()
