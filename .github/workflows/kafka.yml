@@ -3,7 +3,7 @@ name: Enviar transacciones a Kafka
 on:
   # workflow_dispatch:
   schedule:
-    - cron: '* * * * *' 
+    - cron: '8 15 * * *' 
 
 jobs:
   send_transactions:
